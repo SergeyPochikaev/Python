@@ -6,27 +6,28 @@
 # Напишите программу, которая вычисляет стоимость введенного пользователем слова. Будем считать,
 # что на вход подается только одно слово, которое содержит либо только английские, либо только русские буквы.
 
-dictionary = {1:('А','В','Е','И','Н','О','Р','С','Т','A','E','I','O','U','L','N','S','T','R'),
-              2:('Д','К','Л','М','П','У','D','G'),
-              3:('Б','Г','Ё','Ь','Я','B','C','M','P'),
-              4:('Й','Ы','F','H','V','W','Y'),
-              5:('Ж','З','Х','Ц','Ч','K'),
+dictionary = {1:('АВЕИНОРСТAEIOULNSTR'),
+              2:('ДКЛМПУDG'),
+              3:('БГЁЬЯBCMP'),
+              4:('ЙЫFHVWY'),
+              5:('ЖЗХЦЧK'),
               6:'0',
               7:'0',
-              8:('Ш','Э','Ю','J','X'),
+              8:('ШЭЮJX'),
               9:'0',
-              10:('Ф','Щ','Ъ','Q','Z')}
+              10:('ФЩЪQZ')}
 word = input('Введите любое предложение: ')
 unevirsalWord = list(word.upper())
 print()
 list = []
+# print('За это слово вы получаете',  sum([k for i in word for k, v in dictionary.items() if i in v]), 'очков')
 sum = 0
 for i in range(1,len(dictionary)):
     for a in dictionary.get(i):
         for item in range(len(a)):
             for j in unevirsalWord:
                 if j == a[item]:
-                    list.append(i)
+                    list.append(i)   
 for k in range(len(list)):
     sum +=(int(list[k]))
 print('Вы ввели: ', *unevirsalWord,' - получит свои очки: ',sum)
