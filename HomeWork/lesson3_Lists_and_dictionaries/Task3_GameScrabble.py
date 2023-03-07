@@ -20,14 +20,4 @@ word = input('Введите любое предложение: ')
 unevirsalWord = list(word.upper())
 print()
 list = []
-# print('За это слово вы получаете',  sum([k for i in word for k, v in dictionary.items() if i in v]), 'очков')
-sum = 0
-for i in range(1,len(dictionary)):
-    for a in dictionary.get(i):
-        for item in range(len(a)):
-            for j in unevirsalWord:
-                if j == a[item]:
-                    list.append(i)   
-for k in range(len(list)):
-    sum +=(int(list[k]))
-print('Вы ввели: ', *unevirsalWord,' - получит свои очки: ',sum)
+print('За это слово вы получаете',  sum([k for i in unevirsalWord for k, v in dictionary.items() if i in v]), 'очков')

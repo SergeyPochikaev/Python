@@ -15,15 +15,7 @@ orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
 list_Ellipse = list(filter(lambda x: x[0] != x[1], orbits))
 print('Отбор только орбит эллипса - > ', *list_Ellipse)
 list_S = list(map(lambda x: 3.14*x[0]*x[1], list_Ellipse))
-print(list_S)
 data = list(enumerate(list_S))
 print('Перечень орбит с площадями -> ', data)
-data_1 = list(map(lambda x: x[0]+1, data))
-print(data_1)
-list_Smax = list(max(data, key=lambda x: x[1]))
-print(list_Smax)
-
-# orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
-# list1 = [i for i in orbits if i[0] != i[1] ]
-# list2 = (list(map(lambda x: 3.14 * x[0] * x[1], list1)))
-# print(list1[list2.index(max(list2))])
+data_1 = list(map(lambda x: (x[0]+1,x[1]), data))
+print(list(max(data_1, key=lambda x: x[1])))

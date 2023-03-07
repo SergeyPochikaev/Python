@@ -6,21 +6,27 @@
 # вбивает в программу с клавиатуры. В ответе напишите “Парам пам-пам”, если с ритмом все в порядке и
 # “Пам парам”, если с ритмом все не в порядке
 
-def analis(word):
-    vowel_letters = 'аиеёоуыэюя'
+def analis(word,letters):
     dic = {}
     for j in range(len(word)):
         count = 0
         for i in word[j]:
-            for k in vowel_letters:
+            for k in letters:
                 if i == k:
                     count += 1
                     dic[j] = count
-    return len(list(filter(lambda x: x == max(dic.values(), key=lambda x: x), dic.values()))) == len(dic)
+    return max(dic.values(), key=lambda x: x) == min(dic.values(), key=lambda x: x)
 
+vowel_letters = 'аиеёоуыэюя'
+unevirsalWord = list(input('Введите стих : ').lower().split())
+# text = []
+# for i in range(len(unevirsalWord)):
+#     count = 0
+#     for j in unevirsalWord[i]:
+#         x = text.append(list(filter(lambda x: x == j, vowel_letters)))
+# print(text)
 
-uneversalWord = list(input('Введите стих : ').lower().split())
-if analis(uneversalWord):
+if analis(unevirsalWord,vowel_letters):
     print('Парам пам-пам')
 else:
     print('Пам парам')
